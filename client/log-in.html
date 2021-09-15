@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Вход</title>
+        <link href="guest.css" rel="stylesheet">
+        <script src="scripts/login.js"></script>
+        <script type="text/javascript">
+            let sessionCookie = getCookie("sessionID");
+            let request = new XMLHttpRequest();
+
+            request.onload = function() {
+                 if (request.readyState == XMLHttpRequest.DONE && request.status == 200) {
+                     let response = JSON.parse(request.responseText);
+
+                 if (response.message === "yes") {
+                     window.location = "home.html";
+                 } 
+               }   
+            };
+
+           request.open("POST", "../server/endpoints/session_check.php", false);
+           request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+           request.send(JSON.stringify({sessionID:sessionCookie}));
+        </script>
+    </head>
+    
+    <body>
+        <div class="container">
+        <h1>Вход</h1>
+         <form id="login-form">
+             <div class="input-descriptions">Потребителско име</div>
+             <input type="text"/>
+             <div class="input-descriptions">Парола</div>
+             <input type="password"/>
+             <input type="submit" value="Влез" />
+         </form>
+         <div id="response">Грешно потребителско име или парола.</div>
+         <div class="helpful-links">
+                <a href="register.html">Регистрация</a> 
+         </div>
+        </div>
+    </body>
+</html>

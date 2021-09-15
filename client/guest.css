@@ -1,0 +1,102 @@
+@font-face {
+    font-family: "HK Grotesk";
+    src: url("fonts/hkgrotesk.ttf");
+}
+
+
+body {
+    background-color: #4CB288;
+}
+
+.container {
+    position: relative;
+    width: 404px;
+    margin: 18vh auto 0px auto;
+    padding: 1px 0px 1px 0px;
+    background-color: #FCFCFC;
+    border-radius: 30px;
+    vertical-align: middle;
+    font-family: "HK Grotesk";
+}
+
+h1 {
+    font-weight: normal;
+    font-size: 37px;
+    color: #4CB288;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+
+.input-descriptions {
+    font-size: 17px;
+    color: #4CB288;
+    margin-left: 60px;
+}
+
+input {
+    width: 294px;
+    height: 25px;
+    margin: 0px 55px 20px 45px;
+    padding: 0px 0px 0px 15px;
+    background-color: #4CB288;
+    border-radius: 30px;
+    border: none;
+    color: #fff;
+    transition: margin-left 400ms, width 400ms;
+}
+
+input:focus {
+    outline: none;
+    width: 334px;
+    margin-left: 25px;
+}
+
+input[type="submit"] {
+    display: block;
+    background-color: #4CB288;
+    margin: 10px auto;
+    padding: 0px;
+    width: 175px;
+    height: 37px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 17px;
+    color: #ffffff;
+    transition: background-color 300ms linear;
+}
+
+input[type="submit"]:hover {
+    background-color: #D68D93;
+    cursor: pointer;
+}
+
+#logout {
+    display: block;
+    margin: 20px auto;
+}
+
+#response {
+    display: none;
+    background-color: #033F63; /* #419D78 for success */
+    color: #fff;
+    margin: 15px 0;
+    padding: 5px;
+    text-align: center;
+}
+
+.helpful-links {
+    margin: 25px 0px 35px 0px;
+    font-size: 15px;
+    text-align: center;
+}
+
+a {
+    color: #4CB288;
+    text-decoration: none;
+    transition: color 300ms linear;
+}
+
+a:hover {
+    color: #CC7078;
+}

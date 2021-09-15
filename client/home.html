@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+     <meta charset="utf-8">
+     <title>Начало</title>
+     <link href="user.css" rel="stylesheet">
+     <script src="scripts/home.js"></script>
+     <script src="scripts/logout.js"></script>
+     <script type="text/javascript">
+          let sessionCookie = getCookie("sessionID");
+          let request = new XMLHttpRequest();
+
+          request.onload = function() {
+               if (request.readyState == XMLHttpRequest.DONE && request.status == 200) {
+                   let response = JSON.parse(request.responseText);
+
+               if (response.message === "no") {
+                   window.location = "log-in.html";
+               } 
+             }   
+          };
+
+         request.open("POST", "../server/endpoints/session_check.php", false);
+         request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+         request.send(JSON.stringify({sessionID:sessionCookie}));
+      </script>
+</head>
+
+<body>
+     <nav>
+          <ul>
+               <li><a href="#">Начало</a></li>
+               <li><a href="settings.html">Настройки</a></li>
+               <li><a href="index.html" id="logout">Излез</a></li>
+          </ul>
+     </nav>
+
+     <div class="page-content">
+          <div class="widgets">
+               <div class="widget" id="currently-playing">
+                    <div class="widget-content">
+                         <img src="img/cover.png" id="current-cover" />
+                         <div class="widget-track-info">
+                              <div class="title" id="current-title">Title</div>
+                              <div class="artist" id="current-artist">Artist</div>
+                         </div>
+                    </div>
+                    <h1>Слушам в момента</h1>
+               </div>
+          </div>
+
+          <div class="container">
+               <h1>Последно слушани песни</h1>
+               <div class="no-results" id="no-history">Няма резултати</div>
+               <ul class="music-list" id="history"></ul>
+
+               <h1>Най-често слушани песни</h1>
+               <div class="no-results" id="no-songs">Няма резултати</div>
+               <ul class="music-list" id="most-listened-songs"></ul>
+
+               <h1>Най-често слушани изпълнители</h1>
+               <div class="no-results" id="no-artists">Няма резултати</div>
+               <ul class="music-list" id="most-listened-artists"></ul>
+
+               <h1>Най-често слушани албуми</h1>
+               <div class="no-results" id="no-albums">Няма резултати</div>
+               <ul class="music-list" id="most-listened-albums"></ul>
+          </div>
+     </div>
+
+     </br>
+</body>
+
+</html>
